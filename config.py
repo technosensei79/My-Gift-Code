@@ -1,15 +1,15 @@
 import os
 
 # ── Bot credentials ──────────────────────────────────────────────
-BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8477103947:AAF7iKw_YJoojMLW9Xpv5lRM4jOSEOG2w2g")
 
 # ── Admin ────────────────────────────────────────────────────────
-ADMIN_USERNAME = "techno"          # without @
+ADMIN_USERNAME = "technosupportt"          # without @
 ADMIN_IDS: list[int] = []          # filled at runtime from DB / env
 
 # ── Force-join channel ───────────────────────────────────────────
 # Use the public username OR the numeric id (e.g. -1001234567890)
-FORCE_JOIN_CHANNEL = os.getenv("FORCE_JOIN_CHANNEL", "@techno")   # change to your channel username or id
+FORCE_JOIN_CHANNEL = os.getenv("FORCE_JOIN_CHANNEL", "https://t.me/+9KXhPzm8hqs3NmVl")   # change to your channel username or id
 
 # ── Default welcome content ──────────────────────────────────────
 DEFAULT_WELCOME_TEXT = (
@@ -20,8 +20,8 @@ DEFAULT_WELCOME_TEXT = (
 DEFAULT_WELCOME_IMAGE = ""          # URL or file_id; leave empty to send text only
 
 # ── Button links ─────────────────────────────────────────────────
-CHANNEL_LINK  = "https://t.me/+JDL_5OZNjMlhODA1"
-VIP_LINK      = "https://t.me/+n0NvxGrNOrllZDQ1"
+CHANNEL_LINK  = "https://t.me/+9KXhPzm8hqs3NmVl"
+VIP_LINK      = "https://t.me/+9KXhPzm8hqs3NmVl"
 APK_LINK      = "https://technosensei.shop/app.apk"
 BONUS_LINK    = "https://technosensei.shop"
 
