@@ -466,17 +466,30 @@ def build_app() -> Application:
     return app
 
 
-def main() -> None:
-    import asyncio
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    app = build_app()
-    logger.info("Bot is running (polling)…")
-    app.run_polling(
-        allowed_updates=Update.ALL_TYPES,
-        drop_pending_updates=True,
-    )
+from flask import Flask, request
+from telegram import Update
+import os
+
+flask_app = Flask(__name__)
+
+telegram_app = build_app()
+
+@flask_app.route("/")
+def home():
+    return "Bot Running"
+
+@flask_app.route(f"/{config.BOT_TOKEN}", methods=["POST"])
+async def webhook():
+    data = request.get_json(force=True)
+
+    update = Update.de_json(data, telegram_app.bot)
+
+    await telegram_app.initialize()
+    await telegram_app.process_update(update)
+
+    return "ok", 200
 
 
 if __name__ == "__main__":
-    main()
+    port = int(os.environ.get("PORT", 10000))
+    flask_app.run(host="0.0.0.0", port=port)
